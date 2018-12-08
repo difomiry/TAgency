@@ -81,6 +81,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\ClientListViewModel.cs" />
+    <Compile Include="ViewModel\DiscontListViewModel.cs" />
+    <Compile Include="ViewModel\HotelListViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\TourListViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\VoucherListViewModel.cs" />
+    <Compile Include="View\ClientListView.xaml.cs">
+      <DependentUpon>ClientListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DiscontListView.xaml.cs">
+      <DependentUpon>DiscontListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HotelListView.xaml.cs">
+      <DependentUpon>HotelListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TourListView.xaml.cs">
+      <DependentUpon>TourListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\VoucherListView.xaml.cs">
+      <DependentUpon>VoucherListView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +115,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ClientListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DiscontListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HotelListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TourListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\VoucherListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Client.cs" />
