@@ -3,10 +3,47 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TAgency"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="TAgency" Width="640" Height="480" ResizeMode="NoResize" WindowStyle="ToolWindow">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новый" IsEnabled="False"/>
+                <MenuItem Header="Открыть" IsEnabled="False"/>
+                <MenuItem Header="Сохранить" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Сохранить в формате XLS" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Выход" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" IsEnabled="False"/>
+            </MenuItem>
+        </Menu>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Клиенты">
+                <ContentControl Content="{Binding ClientList, Source={StaticResource Locator}}" />
+            </TabItem>
+            <TabItem Header="Отели">
+                <ContentControl Content="{Binding HotelList, Source={StaticResource Locator}}" />
+            </TabItem>
+            <TabItem Header="Туры">
+                <ContentControl Content="{Binding TourList, Source={StaticResource Locator}}" />
+            </TabItem>
+            <TabItem Header="Скидки">
+                <ContentControl Content="{Binding DiscontList, Source={StaticResource Locator}}" />
+            </TabItem>
+            <TabItem Header="Ваучеры">
+                <ContentControl Content="{Binding VoucherList, Source={StaticResource Locator}}" />
+            </TabItem>
+        </TabControl>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem Content="{Binding PathToDatabase}"/>
+        </StatusBar>
     </Grid>
 </Window>
