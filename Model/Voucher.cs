@@ -1,10 +1,15 @@
 ﻿namespace TAgency.Model
 {
     /// <summary>
-    /// The relation client-to-tour model.
+    /// The voucher model.
     /// </summary>
-    public class ClientTour
+    public class Voucher
     {
+        /// <summary>
+        /// The voucher identifier.
+        /// </summary>
+        public int VoucherID { get; set; }
+
         /// <summary>
         /// The client identifier.
         /// </summary>
@@ -16,7 +21,7 @@
         public int TourID { get; set; }
 
         /// <summary>
-        /// The number of vouchers.
+        /// The number of persons.
         /// </summary>
         public int Count { get; set; }
 

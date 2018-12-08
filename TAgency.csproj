@@ -71,7 +71,7 @@
   <ItemGroup>
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientDiscont.cs" />
-    <Compile Include="Model\ClientTour.cs" />
+    <Compile Include="Model\Voucher.cs" />
     <Compile Include="Model\Discont.cs" />
     <Compile Include="Model\Hotel.cs" />
     <Compile Include="Model\Tour.cs" />
