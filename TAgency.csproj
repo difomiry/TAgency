@@ -69,6 +69,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\ClientDiscont.cs" />
+    <Compile Include="Model\ClientTour.cs" />
+    <Compile Include="Model\Discont.cs" />
+    <Compile Include="Model\Hotel.cs" />
+    <Compile Include="Model\Tour.cs" />
+    <Compile Include="Model\TourHotel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
