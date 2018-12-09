@@ -91,7 +91,7 @@ FROM "Tour" "t", (
 WHERE "t"."TourID" = "tt"."TourID";
 
 --
--- The VoucherAfterInsert view.
+-- The VoucherAfterInsert trigger.
 --
 
 CREATE TRIGGER IF NOT EXISTS "VoucherAfterInsert" AFTER INSERT ON "Voucher" BEGIN
