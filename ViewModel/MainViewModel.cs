@@ -15,7 +15,7 @@ namespace TAgency.ViewModel
         /// <summary>
         /// The path to database.
         /// </summary>
-        private string pathToDatabase = "undefined";
+        private string pathToDatabase;
 
         /// <summary>
         /// The "New" command that opens SaveFileDialog for new database creation.
