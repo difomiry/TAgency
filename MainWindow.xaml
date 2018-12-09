@@ -13,16 +13,14 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="Файл">
-                <MenuItem Header="Новый" IsEnabled="False"/>
-                <MenuItem Header="Открыть" IsEnabled="False"/>
-                <MenuItem Header="Сохранить" IsEnabled="False"/>
+                <MenuItem Header="Новый" Command="{Binding NewCommand}"/>
+                <MenuItem Header="Открыть" Command="{Binding OpenCommand}"/>
+                <MenuItem Header="Сохранить" Command="{Binding SaveCommand}"/>
                 <Separator/>
-                <MenuItem Header="Сохранить в формате XLS" IsEnabled="False"/>
-                <Separator/>
-                <MenuItem Header="Выход" IsEnabled="False"/>
+                <MenuItem Header="Выход" Command="{Binding ExitCommand}"/>
             </MenuItem>
             <MenuItem Header="Справка">
-                <MenuItem Header="О программе" IsEnabled="False"/>
+                <MenuItem Header="О программе" Command="{Binding AboutCommand}"/>
             </MenuItem>
         </Menu>
         <TabControl Grid.Row="1">
