@@ -1,5 +1,6 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using System.Data.SQLite;
 
 namespace TAgency.ViewModel
 {
@@ -96,6 +97,7 @@ namespace TAgency.ViewModel
         /// </summary>
         public static void Cleanup()
         {
+            SimpleIoc.Default.GetInstance<SQLiteConnection>().Close();
         }
     }
 }
