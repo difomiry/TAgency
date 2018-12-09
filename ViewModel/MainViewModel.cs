@@ -16,29 +16,29 @@ namespace TAgency.ViewModel
         /// The path to database.
         /// </summary>
         private string pathToDatabase = "undefined";
-        
+
         /// <summary>
-        /// The "New" command.
+        /// The "New" command that opens SaveFileDialog for new database creation.
         /// </summary>
         private ICommand newCommand;
 
         /// <summary>
-        /// The "Open" command.
+        /// The "Open" command that opens OpenFileDialog for new database selection.
         /// </summary>
         private ICommand openCommand;
 
         /// <summary>
-        /// The "Save" command.
+        /// The "Save" command that ppens SaveFileDialog for current database saving.
         /// </summary>
         private ICommand saveCommand;
 
         /// <summary>
-        /// The "Exit" command.
+        /// The "Exit" command that exits the applicaton.
         /// </summary>
         private ICommand exitCommand;
 
         /// <summary>
-        /// The "About" command.
+        /// The "About" command that shows information about the application.
         /// </summary>
         private ICommand aboutCommand;
 
@@ -56,7 +56,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "New" command.
+        /// The "New" command that opens SaveFileDialog for new database creation.
         /// </summary>
         public ICommand NewCommand
         {
@@ -65,7 +65,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "Open" command.
+        /// The "Open" command that opens OpenFileDialog for new database selection.
         /// </summary>
         public ICommand OpenCommand
         {
@@ -74,7 +74,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "Save" command.
+        /// The "Save" command that ppens SaveFileDialog for current database saving.
         /// </summary>
         public ICommand SaveCommand
         {
@@ -83,7 +83,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "Exit" command.
+        /// The "Exit" command that exits the applicaton.
         /// </summary>
         public ICommand ExitCommand
         {
@@ -92,7 +92,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "About" command.
+        /// The "About" command that shows information about the application.
         /// </summary>
         public ICommand AboutCommand
         {
