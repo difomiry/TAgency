@@ -19,5 +19,10 @@
         /// The discount percent.
         /// </summary>
         public float Percent { get; set; }
+
+        /// <summary>
+        /// The flag that shows that the discount binded to the client.
+        /// </summary>
+        public bool IsChecked { get; set; }
     }
 }
