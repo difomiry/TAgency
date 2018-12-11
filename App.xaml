@@ -20,8 +20,8 @@
             <DataTemplate DataType="{x:Type vm:TourListViewModel}">
                 <v:TourListView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type vm:DiscontListViewModel}">
-                <v:DiscontListView/>
+            <DataTemplate DataType="{x:Type vm:DiscountListViewModel}">
+                <v:DiscountListView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type vm:VoucherListViewModel}">
                 <v:VoucherListView/>

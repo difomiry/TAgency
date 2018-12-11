@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS "Hotel"
 	"Cost" real NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS "Discont"
+CREATE TABLE IF NOT EXISTS "Discount"
 (
-	"DiscontID" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"DiscountID" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	"Name" text NOT NULL,
 	"Percent" real NOT NULL
 );
@@ -32,12 +32,12 @@ CREATE TABLE IF NOT EXISTS "Tour"
 	"Date" datetime NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS "ClientDiscont"
+CREATE TABLE IF NOT EXISTS "ClientDiscount"
 (
 	"ClientID" integer NOT NULL,
-	"DiscontID" integer NOT NULL,
+	"DiscountID" integer NOT NULL,
 	FOREIGN KEY("ClientID") REFERENCES "Client"("ClientID") ON DELETE CASCADE,
-	FOREIGN KEY("DiscontID") REFERENCES "Discont"("DiscontID") ON DELETE CASCADE
+	FOREIGN KEY("DiscountID") REFERENCES "Discount"("DiscountID") ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS "TourHotel"
@@ -61,16 +61,16 @@ CREATE TABLE IF NOT EXISTS "Voucher"
 );
 
 --
--- The ClientWithDiscont view.
+-- The ClientWithDiscount view.
 --
 
-CREATE VIEW IF NOT EXISTS "ClientWithDiscont" AS
-SELECT "c"."ClientID", "Name", "Address", "Phone", "cc"."Discont"
+CREATE VIEW IF NOT EXISTS "ClientWithDiscount" AS
+SELECT "c"."ClientID", "Name", "Address", "Phone", "cc"."Discount"
 FROM "Client" "c", (
-	SELECT "Client"."ClientID", IFNULL(SUM("d"."Percent"), 0) "Discont"
+	SELECT "Client"."ClientID", IFNULL(SUM("d"."Percent"), 0) "Discount"
 	FROM "Client"
-	LEFT JOIN "ClientDiscont" "cd" ON "cd"."ClientID" = "Client"."ClientID"
-	LEFT JOIN "Discont" "d" ON "d"."DiscontID" = "cd"."DiscontID"
+	LEFT JOIN "ClientDiscount" "cd" ON "cd"."ClientID" = "Client"."ClientID"
+	LEFT JOIN "Discount" "d" ON "d"."DiscountID" = "cd"."DiscountID"
 	GROUP BY "Client"."ClientID"
 ) "cc"
 WHERE "c"."ClientID" = "cc"."ClientID";
@@ -97,9 +97,9 @@ WHERE "t"."TourID" = "tt"."TourID";
 CREATE TRIGGER IF NOT EXISTS "VoucherAfterInsert" AFTER INSERT ON "Voucher" BEGIN
 
 	UPDATE "Voucher" SET "Cost" = (
-		SELECT (1 - "cd"."Discont") * ("tdc"."Cost" * 1.3)
+		SELECT (1 - "cd"."Discount") * ("tdc"."Cost" * 1.3)
 		FROM "Voucher" "vv"
-		INNER JOIN "ClientWithDiscont" "cd" ON "cd"."ClientID" = "vv"."ClientID"
+		INNER JOIN "ClientWithDiscount" "cd" ON "cd"."ClientID" = "vv"."ClientID"
 		INNER JOIN "TourWithDurationAndCost" "tdc" ON "tdc"."TourID" = "vv"."TourID"
 		WHERE "Voucher"."VoucherID" = "vv"."VoucherID"
 	) WHERE "Cost" IS NULL;

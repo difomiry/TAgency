@@ -22,7 +22,7 @@ namespace TAgency.ViewModel
             SimpleIoc.Default.Register<ClientListViewModel>();
             SimpleIoc.Default.Register<HotelListViewModel>();
             SimpleIoc.Default.Register<TourListViewModel>();
-            SimpleIoc.Default.Register<DiscontListViewModel>();
+            SimpleIoc.Default.Register<DiscountListViewModel>();
             SimpleIoc.Default.Register<VoucherListViewModel>();
         }
 
@@ -71,13 +71,13 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// Gets the DiscontList view model.
+        /// Gets the DiscountList view model.
         /// </summary>
-        public DiscontListViewModel DiscontList
+        public DiscountListViewModel DiscountList
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<DiscontListViewModel>();
+                return ServiceLocator.Current.GetInstance<DiscountListViewModel>();
             }
         }
 

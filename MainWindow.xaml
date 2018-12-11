@@ -34,7 +34,7 @@
                 <ContentControl Content="{Binding TourList, Source={StaticResource Locator}}" />
             </TabItem>
             <TabItem Header="Скидки">
-                <ContentControl Content="{Binding DiscontList, Source={StaticResource Locator}}" />
+                <ContentControl Content="{Binding DiscountList, Source={StaticResource Locator}}" />
             </TabItem>
             <TabItem Header="Ваучеры">
                 <ContentControl Content="{Binding VoucherList, Source={StaticResource Locator}}" />

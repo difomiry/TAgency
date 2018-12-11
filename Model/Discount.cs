@@ -1,22 +1,22 @@
 ﻿namespace TAgency.Model
 {
     /// <summary>
-    /// The discont model.
+    /// The discount model.
     /// </summary>
-    public class Discont
+    public class Discount
     {
         /// <summary>
-        /// The discont identifier.
+        /// The discount identifier.
         /// </summary>
-        public int DiscontID { get; set; }
+        public int DiscountID { get; set; }
 
         /// <summary>
-        /// The discont name.
+        /// The discount name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// The discont percent.
+        /// The discount percent.
         /// </summary>
         public float Percent { get; set; }
     }

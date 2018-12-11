@@ -11,9 +11,9 @@ using TAgency.Model;
 namespace TAgency.ViewModel
 {
     /// <summary>
-    /// The DiscontList view model.
+    /// The DiscountList view model.
     /// </summary>
-    public class DiscontListViewModel : ViewModelBase
+    public class DiscountListViewModel : ViewModelBase
     {
         #region Fields
 
@@ -23,22 +23,22 @@ namespace TAgency.ViewModel
         private readonly SQLiteConnection connection = SimpleIoc.Default.GetInstance<SQLiteConnection>();
 
         /// <summary>
-        /// The observable collection of disconts.
+        /// The observable collection of discounts.
         /// </summary>
-        private ObservableCollection<Discont> disconts;
+        private ObservableCollection<Discount> discounts;
 
         /// <summary>
-        /// The "Edit" command that opens the window for discont editing.
+        /// The "Edit" command that opens the window for discount editing.
         /// </summary>
         private ICommand editCommand;
 
         /// <summary>
-        /// The "Delete" command that opens the confirmation window for discont deleting.
+        /// The "Delete" command that opens the confirmation window for discount deleting.
         /// </summary>
         private ICommand deleteCommand;
 
         /// <summary>
-        /// The "Add" command that opens the window for discont adding.
+        /// The "Add" command that opens the window for discount adding.
         /// </summary>
         private ICommand addCommand;
 
@@ -47,16 +47,16 @@ namespace TAgency.ViewModel
         #region Properties
 
         /// <summary>
-        /// The observable collection of disconts.
+        /// The observable collection of discounts.
         /// </summary>
-        public ObservableCollection<Discont> Disconts
+        public ObservableCollection<Discount> Discounts
         {
-            get => disconts;
-            set => Set(ref disconts, value);
+            get => discounts;
+            set => Set(ref discounts, value);
         }
 
         /// <summary>
-        /// The "Edit" command that opens the window for discont editing.
+        /// The "Edit" command that opens the window for discount editing.
         /// </summary>
         public ICommand EditCommand
         {
@@ -65,7 +65,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "Delete" command that opens the confirmation window for discont deleting.
+        /// The "Delete" command that opens the confirmation window for discount deleting.
         /// </summary>
         public ICommand DeleteCommand
         {
@@ -74,7 +74,7 @@ namespace TAgency.ViewModel
         }
 
         /// <summary>
-        /// The "Add" command that opens the window for discont adding.
+        /// The "Add" command that opens the window for discount adding.
         /// </summary>
         public ICommand AddCommand
         {
@@ -85,48 +85,48 @@ namespace TAgency.ViewModel
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the DiscontListViewModel class.
+        /// Initializes a new instance of the DiscountListViewModel class.
         /// </summary>
-        public DiscontListViewModel()
+        public DiscountListViewModel()
         {
             ReloadData();
 
-            EditCommand = new RelayCommand<Discont>(EditCommandExecute);
-            DeleteCommand = new RelayCommand<Discont>(DeleteCommandExecute);
+            EditCommand = new RelayCommand<Discount>(EditCommandExecute);
+            DeleteCommand = new RelayCommand<Discount>(DeleteCommandExecute);
             AddCommand = new RelayCommand(AddCommandExecute);
         }
 
         /// <summary>
-        /// Reloads the observable collection of disconts.
+        /// Reloads the observable collection of discounts.
         /// </summary>
         public void ReloadData()
         {
-            Disconts = new ObservableCollection<Discont>(connection.Query<Discont>("SELECT * FROM Discont"));
+            Discounts = new ObservableCollection<Discount>(connection.Query<Discount>("SELECT * FROM Discount"));
         }
 
         /// <summary>
-        /// Opens the window for discont editing.
+        /// Opens the window for discount editing.
         /// </summary>
-        /// <param name="discont">A discont entity.</param>
-        private void EditCommandExecute(Discont discont)
+        /// <param name="discount">A discount entity.</param>
+        private void EditCommandExecute(Discount discount)
         {
         }
 
         /// <summary>
-        /// Opens the confirmation window for discont deleting.
+        /// Opens the confirmation window for discount deleting.
         /// </summary>
-        /// <param name="discont">A discont entity.</param>
-        private void DeleteCommandExecute(Discont discont)
+        /// <param name="discount">A discount entity.</param>
+        private void DeleteCommandExecute(Discount discount)
         {
             if (MessageBox.Show("Вы действительно хотите удалить скидку?", "Удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                connection.Execute("DELETE FROM Discont WHERE DiscontID = @DiscontID", discont);
+                connection.Execute("DELETE FROM Discount WHERE DiscountID = @DiscountID", discount);
                 ReloadData();
             }
         }
 
         /// <summary>
-        /// Opens the window for discont adding.
+        /// Opens the window for discount adding.
         /// </summary>
         private void AddCommandExecute()
         {

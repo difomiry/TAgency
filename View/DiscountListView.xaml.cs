@@ -2,9 +2,9 @@
 
 namespace TAgency.View
 {
-    public partial class DiscontListView : UserControl
+    public partial class DiscountListView : UserControl
     {
-        public DiscontListView()
+        public DiscountListView()
         {
             InitializeComponent();
         }

@@ -1,9 +1,9 @@
 ﻿namespace TAgency.Model
 {
     /// <summary>
-    /// The relation client-to-discont model.
+    /// The relation client-to-discount model.
     /// </summary>
-    public class ClientDiscont
+    public class ClientDiscount
     {
         /// <summary>
         /// The client identifier.
@@ -11,8 +11,8 @@
         public int ClientID { get; set; }
 
         /// <summary>
-        /// The discont identifier.
+        /// The discount identifier.
         /// </summary>
-        public int DiscontID { get; set; }
+        public int DiscountID { get; set; }
     }
 }
