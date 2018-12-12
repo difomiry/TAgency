@@ -83,6 +83,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\AddEditClientViewModel.cs" />
     <Compile Include="ViewModel\AddEditDiscountViewModel.cs" />
+    <Compile Include="ViewModel\AddEditHotelViewModel.cs" />
     <Compile Include="ViewModel\ClientListViewModel.cs" />
     <Compile Include="ViewModel\DiscountListViewModel.cs" />
     <Compile Include="ViewModel\HotelListViewModel.cs" />
@@ -95,6 +96,9 @@
     </Compile>
     <Compile Include="View\AddEditDiscountWindow.xaml.cs">
       <DependentUpon>AddEditDiscountWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEditHotelWindow.xaml.cs">
+      <DependentUpon>AddEditHotelWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientListView.xaml.cs">
       <DependentUpon>ClientListView.xaml</DependentUpon>
@@ -128,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddEditDiscountWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEditHotelWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
