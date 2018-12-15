@@ -29,5 +29,10 @@
         /// The cost of living in the hotel.
         /// </summary>
         public float Cost { get; set; }
+
+        /// <summary>
+        /// The duration of rest.
+        /// </summary>
+        public string Duration { get; set; }
     }
 }
