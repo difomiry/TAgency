@@ -3,18 +3,16 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Ioc;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using TAgency.Model;
 
 namespace TAgency.ViewModel
 {
+    /// <summary>
+    /// The AddEditDiscountViewModel view model.
+    /// </summary>
     public class AddEditDiscountViewModel : ViewModelBase
     {
         #region Fields
