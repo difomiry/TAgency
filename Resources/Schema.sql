@@ -97,7 +97,7 @@ WHERE "t"."TourID" = "tt"."TourID";
 CREATE TRIGGER IF NOT EXISTS "VoucherAfterInsert" AFTER INSERT ON "Voucher" BEGIN
 
 	UPDATE "Voucher" SET "Cost" = (
-		SELECT (1 - "cd"."Discount") * ("tdc"."Cost" * 1.3)
+		SELECT (1 - "cd"."Discount") * ("tdc"."Cost" * 1.3) * "vv"."Count"
 		FROM "Voucher" "vv"
 		INNER JOIN "ClientWithDiscount" "cd" ON "cd"."ClientID" = "vv"."ClientID"
 		INNER JOIN "TourWithDurationAndCost" "tdc" ON "tdc"."TourID" = "vv"."TourID"
