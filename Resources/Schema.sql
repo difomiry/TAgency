@@ -80,7 +80,7 @@ WHERE "c"."ClientID" = "cc"."ClientID";
 --
 
 CREATE VIEW IF NOT EXISTS "TourWithDurationAndCost" AS
-SELECT "t"."TourID", "t"."Date", "tt"."Cost"
+SELECT "t"."TourID", "t"."Date", "tt"."Duration", "tt"."Cost"
 FROM "Tour" "t", (
 	SELECT "Tour"."TourID", IFNULL(SUM("th"."Duration"), 0) "Duration", IFNULL(SUM("th"."Duration" * "h"."Cost"), 0) "Cost"
 	FROM "Tour"
