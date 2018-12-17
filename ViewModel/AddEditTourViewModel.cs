@@ -122,7 +122,7 @@ namespace TAgency.ViewModel
         {
             this.tour = tour;
             Title = string.Format("Редактирование тура #{0}", tour.TourID);
-            Date = tour.Date.ToString();
+            Date = tour.DateAsString;
             Initialize();
         }
 
@@ -158,6 +158,10 @@ namespace TAgency.ViewModel
                     tour.Date = DateTime.Parse(Date);
 
                     tour.TourID = connection.Query<int>("INSERT INTO Tour (Date) VALUES (@Date); SELECT last_insert_rowid();", tour).Single();
+                }
+                else
+                {
+                    tour.Date = DateTime.Parse(Date);
                 }
 
                 foreach (var hotel in Hotels)

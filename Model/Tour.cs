@@ -31,5 +31,11 @@ namespace TAgency.Model
         /// The tour start date as string.
         /// </summary>
         public string DateAsString => Date.ToShortDateString();
+
+        /// <summary>
+        /// Returns a string that represents the tour model.
+        /// </summary>
+        /// <returns>A string that represents the tour model.</returns>
+        public override string ToString() => string.Format("#{0:0000}: {1} {2}*{3}", TourID, DateAsString, Duration, Cost);
     }
 }

@@ -24,5 +24,11 @@
         /// The client phone number.
         /// </summary>
         public string Phone { get; set; }
+
+        /// <summary>
+        /// Returns a string that represents the client model.
+        /// </summary>
+        /// <returns>A string that represents the client model.</returns>
+        public override string ToString() => string.Format("#{0:0000}: {1}", ClientID, Name);
     }
 }
