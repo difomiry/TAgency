@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Windows;
 using System.Windows.Input;
 using TAgency.Model;
+using TAgency.View;
 
 namespace TAgency.ViewModel
 {
@@ -110,6 +111,13 @@ namespace TAgency.ViewModel
         /// <param name="voucher">A voucher entity.</param>
         private void EditCommandExecute(Voucher voucher)
         {
+            var dialog = new AddEditVoucherWindow(new AddEditVoucherViewModel(voucher));
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            if (dialog.ShowDialog() ?? false)
+            {
+                ReloadData();
+            }
         }
 
         /// <summary>
@@ -130,6 +138,13 @@ namespace TAgency.ViewModel
         /// </summary>
         private void AddCommandExecute()
         {
+            var dialog = new AddEditVoucherWindow(new AddEditVoucherViewModel());
+            dialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            if (dialog.ShowDialog() ?? false)
+            {
+                ReloadData();
+            }
         }
     }
 }
