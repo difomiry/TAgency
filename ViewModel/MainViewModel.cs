@@ -1,5 +1,10 @@
-﻿using GalaSoft.MvvmLight;
+﻿using Dapper;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Win32;
+using System.Data.SQLite;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
@@ -121,6 +126,31 @@ namespace TAgency.ViewModel
         /// </summary>
         private void NewCommandExecute()
         {
+            var dialog = new SaveFileDialog();
+
+            dialog.Title = "Новая база данных";
+            dialog.DefaultExt = "db";
+            dialog.Filter = "SQLite (*.db;*.sqlite;*.sqlite3)|*.db;*.sqlite;*.sqlite3";
+
+            if (dialog.ShowDialog() ?? false)
+            {
+                Properties.Settings.Default.PathToDatabase = dialog.FileName;
+                Properties.Settings.Default.Save();
+                SimpleIoc.Default.Unregister<SQLiteConnection>();
+                SimpleIoc.Default.Register(() =>
+                {
+                    var connection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", dialog.FileName));
+                    connection.Open();
+                    connection.Execute(Properties.Resources.Schema);
+                    return connection;
+                });
+                PathToDatabase = dialog.FileName;
+                SimpleIoc.Default.GetInstance<ClientListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<DiscountListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<TourListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<HotelListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<VoucherListViewModel>().ReloadData();
+            }
         }
 
         /// <summary>
@@ -128,6 +158,31 @@ namespace TAgency.ViewModel
         /// </summary>
         private void OpenCommandExecute()
         {
+            var dialog = new OpenFileDialog();
+
+            dialog.Title = "Открыть базу данных";
+            dialog.DefaultExt = "db";
+            dialog.Filter = "SQLite (*.db;*.sqlite;*.sqlite3)|*.db;*.sqlite;*.sqlite3";
+
+            if (dialog.ShowDialog() ?? false)
+            {
+                Properties.Settings.Default.PathToDatabase = dialog.FileName;
+                Properties.Settings.Default.Save();
+                SimpleIoc.Default.Unregister<SQLiteConnection>();
+                SimpleIoc.Default.Register(() =>
+                {
+                    var connection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", dialog.FileName));
+                    connection.Open();
+                    connection.Execute(Properties.Resources.Schema);
+                    return connection;
+                });
+                PathToDatabase = dialog.FileName;
+                SimpleIoc.Default.GetInstance<ClientListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<DiscountListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<TourListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<HotelListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<VoucherListViewModel>().ReloadData();
+            }
         }
 
         /// <summary>
@@ -135,6 +190,33 @@ namespace TAgency.ViewModel
         /// </summary>
         private void SaveCommandExecute()
         {
+            var dialog = new SaveFileDialog();
+
+            dialog.Title = "Сохранить базу данных";
+            dialog.DefaultExt = "db";
+            dialog.Filter = "SQLite (*.db;*.sqlite;*.sqlite3)|*.db;*.sqlite;*.sqlite3";
+
+            if (dialog.ShowDialog() ?? false)
+            {
+                var oldPath = Properties.Settings.Default.PathToDatabase;
+                File.Copy(oldPath, dialog.FileName, true);
+                Properties.Settings.Default.PathToDatabase = dialog.FileName;
+                Properties.Settings.Default.Save();
+                SimpleIoc.Default.Unregister<SQLiteConnection>();
+                SimpleIoc.Default.Register(() =>
+                {
+                    var connection = new SQLiteConnection(string.Format("Data Source={0}; Version=3", dialog.FileName));
+                    connection.Open();
+                    connection.Execute(Properties.Resources.Schema);
+                    return connection;
+                });
+                PathToDatabase = dialog.FileName;
+                SimpleIoc.Default.GetInstance<ClientListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<DiscountListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<TourListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<HotelListViewModel>().ReloadData();
+                SimpleIoc.Default.GetInstance<VoucherListViewModel>().ReloadData();
+            }
         }
 
         /// <summary>
