@@ -102,7 +102,7 @@ namespace TAgency.ViewModel
         /// </summary>
         public void ReloadData()
         {
-            Tours = new ObservableCollection<Tour>(connection.Query<Tour>("SELECT * FROM Tour"));
+            Tours = new ObservableCollection<Tour>(connection.Query<Tour>("SELECT * FROM TourWithDurationAndCost"));
         }
 
         /// <summary>

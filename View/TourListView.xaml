@@ -14,7 +14,9 @@
         <DataGrid Grid.Row="0" CanUserResizeRows="False" CanUserResizeColumns="False" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" ItemsSource="{Binding Tours}" dgx:DataGridFilter.IsAutoFilterEnabled="True">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Header="ID" Binding="{Binding Path=TourID}" dgx:DataGridFilterColumn.IsFilterVisible="False" />
-                <DataGridTextColumn IsReadOnly="True" Header="Дата" Binding="{Binding Path=Date}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Дата" Binding="{Binding Path=DateAsString}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Продолжительность" Binding="{Binding Path=Duration}" />
+                <DataGridTextColumn IsReadOnly="True" Header="Стоимость" Binding="{Binding Path=Cost}" />
                 <DataGridTemplateColumn dgx:DataGridFilterColumn.IsFilterVisible="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
